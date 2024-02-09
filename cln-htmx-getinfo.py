@@ -8,7 +8,7 @@ plugin = Plugin()
 @plugin.init()  # this runs when the plugin starts.
 def init(options, configuration, plugin, **kwargs):
 
-    plugin.log("lnplay.live - rpc plugin initialized")
+    plugin.log("lnwidget.guide - cln-htmx-getinfo plugin initialized")
 
 
 @plugin.method("htmx-getinfo")
