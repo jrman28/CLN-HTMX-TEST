@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-import json
-import re
+
 from pyln.client import Plugin, RpcError
 
 plugin = Plugin()
@@ -20,7 +19,6 @@ def htmx_getinfo(plugin):
     except RpcError as e:
         plugin.log(e)
         return e
-
 
 
 plugin.run()  # Run our plugin
