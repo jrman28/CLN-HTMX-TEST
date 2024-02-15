@@ -11,7 +11,7 @@ def init(options, configuration, plugin, **kwargs):
     plugin.log("lnwidget.guide - cln-htmx-getinfo plugin initialized")
 
 @app.route('/htmx/getinfo')
-@plugin.method("htmx-getinfo")
+#@plugin.method("htmx-getinfo")
 def htmx_getinfo(plugin):
     '''Returns the getinfo output as HTMX.'''
     
