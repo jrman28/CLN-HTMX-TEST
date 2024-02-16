@@ -20,22 +20,7 @@ def htmx_getinfo(plugin):
     node_alias = get_info_response["alias"]
     block_height = get_info_response["blockheight"]
 
-    html_content = f"""
-    <table>
-        <tr>
-            <th>Node ID</th>
-            <th>Alias</th>
-            <th>Color</th>
-            <th>Block Height</th>
-        </tr>
-        <tr>
-            <td>{node_id}</td>
-            <td>{node_alias}</td>
-            <td>{node_color}</td>
-            <td>{block_height}</td>
-        </tr>
-    </table>
-    """
+    html_content = f"<table><tr><th>Node ID</th><th>Alias</th><th>Color</th><th>Block Height</th></tr><tr><td>{node_id}</td><td>{node_alias}</td><td>{node_color}</td><td>{block_height}</td></tr></table>"
 
     return html_content
 
