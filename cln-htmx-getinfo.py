@@ -1,26 +1,42 @@
 #!/usr/bin/env python3
 
-from flask import Flask, Response, render_template
 from pyln.client import Plugin, RpcError
 
 plugin = Plugin()
 
 @plugin.init()  # this runs when the plugin starts.
 def init(options, configuration, plugin, **kwargs):
+    plugin.log("cln-htmx-getinfo boilerplate.")
 
-    plugin.log("lnwidget.guide - cln-htmx-getinfo plugin initialized")
-
-#@app.route('/htmx/getinfo')
 @plugin.method("htmx-getinfo")
 def htmx_getinfo(plugin):
-    '''Returns the getinfo output as HTMX.'''
-    
-    html_content = "<table><tr><th>Node ID</th><th>Alias</th><th>Color</th></tr><tr><td>node_id_xxx</td><td>Alice</td><td>Blue</td></tr></table>"
+    '''
+    Returns the getinfo output as HTMX.
+    '''
+
+    get_info_response = plugin.rpc.getinfo()
+    node_id = get_info_response["id"]
+    node_color = get_info_response["color"]
+    node_alias = get_info_response["alias"]
+    block_height = get_info_response["block_height"]
+
+    html_content = f"""
+    <table>
+        <tr>
+            <th>Node ID</th>
+            <th>Alias</th>
+            <th>Color</th>
+            <th>Block Height</th>
+        </tr>
+        <tr>
+            <td>{node_id}</td>
+            <td>{node_alias}</td>
+            <td>{color}</td>
+            <td>{block_height}</td>
+        </tr>
+    </table>
+    """
 
     return html_content
 
-
-    # Return the HTML content with the correct Content-Type header
-    #return Response(html_content, mimetype='text/html')
-    
 plugin.run()  # Run our plugin
