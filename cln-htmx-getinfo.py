@@ -18,7 +18,7 @@ def htmx_getinfo(plugin):
     node_id = get_info_response["id"]
     node_color = get_info_response["color"]
     node_alias = get_info_response["alias"]
-    block_height = get_info_response["block_height"]
+    block_height = get_info_response["blockheight"]
 
     html_content = f"""
     <table>
