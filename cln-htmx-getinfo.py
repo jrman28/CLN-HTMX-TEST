@@ -31,7 +31,7 @@ def htmx_getinfo(plugin):
         <tr>
             <td>{node_id}</td>
             <td>{node_alias}</td>
-            <td>{color}</td>
+            <td>{node_color}</td>
             <td>{block_height}</td>
         </tr>
     </table>
